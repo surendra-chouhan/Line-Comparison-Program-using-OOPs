@@ -23,15 +23,17 @@ public class line_comparison {
 		return Math.round(length_of_a_line*100.0)/100.0;
 	}
 
-	public void isequals(double line1, double line2){
+	public void compare(double line1, double line2){
 		String first=Double.toString(line1);
 		String second=Double.toString(line2);
 
-		boolean result = first.equals(second);
-		if(result)
-			System.out.println("Both lines are equal.");
+		double result = first.compareTo(second);
+		if(result>=1)
+			System.out.println("Line1 is greater than Line2");
+		else if(result<0)
+			System.out.println("Line2 is greater than Line1");
 		else
-			System.out.println("Both lines are not equal.");
+			System.out.println("Line1 is equal to Line2");
 
 	}
 
@@ -49,7 +51,7 @@ public class line_comparison {
 		double line_length2 = lc.calculate_length();
 		System.out.println("Length of a line 2 is : " + line_length2);
 
-		lc.isequals(line_length1,line_length2);
+		lc.compare(line_length1,line_length2);
 
 	}
 }
